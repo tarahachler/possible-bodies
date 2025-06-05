@@ -4,13 +4,12 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Anchor
   - Interactable
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - BloomOnly
   - Water
   - UI
   - 

@@ -2,18 +2,20 @@ using UnityEngine;
 
 public class AttachToCamera : MonoBehaviour
 {
-    public Transform cameraTransform;   // Assigne ici la caméra (par exemple Camera.main.transform)
-    public Vector3 offset = new Vector3(0, 0, 2); // Position relative (ex: 2 unités devant la caméra)
+    public Transform centerEye; // Main Camera ou XR camera
+    public Vector3 offset = new Vector3(0, 0, 1f); // Distance devant la tête
 
-    void Update()
+    void LateUpdate()
     {
-        if (cameraTransform != null)
+        if (centerEye != null)
         {
-            // Positionne l'objet à l'offset relatif à la caméra
-            transform.position = cameraTransform.position + cameraTransform.rotation * offset;
+            // Position avec offset local dans l'espace de la caméra
+            transform.position = centerEye.position
+                + centerEye.forward * offset.z
+                + centerEye.right * offset.x
+                + centerEye.up * offset.y;
 
-            // (optionnel) faire en sorte que l’objet regarde dans la même direction que la caméra
-            transform.rotation = cameraTransform.rotation;
+            transform.rotation = Quaternion.LookRotation(centerEye.forward, Vector3.up);
         }
     }
 }
