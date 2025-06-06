@@ -25,7 +25,7 @@ public class ReticleController : MonoBehaviour
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, raycastLayers))
         {
             targetPosition = hit.point;
-            Debug.Log("Raycast hit: " + hit.collider.name);
+            // Debug.Log("Raycast hit: " + hit.collider.name);
         }
         // Si le raycast ne touche rien, on utilise la distance par défaut
         else
