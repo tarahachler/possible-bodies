@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 public class StarManager : MonoBehaviour
 {
@@ -43,12 +44,9 @@ public class StarManager : MonoBehaviour
 
     public void StarLit(Star star)
     {
-        if (!star.IsLit) // Ajoute cette vérification pour éviter les doublons
-        {
-            starsLitCount++;
-            star.IsLit = true;
-            HandleAudio();
-        }
+        starsLitCount++;
+
+        HandleAudio();
 
         if (!allStarsLit && AllStarsLit())
         {
@@ -58,34 +56,18 @@ public class StarManager : MonoBehaviour
 
     private void HandleAudio()
     {
-        if (starsLitCount == 2)
+        float fPlaying = (starsLitCount - 2) * (audioClips.Count() - 1.0f) / (stars.Count - 2) + 1;
+        int nPlaying = Mathf.FloorToInt(fPlaying);
+        Debug.Log($"fPlaying: {fPlaying} , nPlaying: {nPlaying}, Stars Lit: {starsLitCount}, Total Stars: {stars.Count}");
+        
+        for (int i = 0; i < audioClips.Count(); i++)
         {
-            // Démarre toutes les pistes, mute tout sauf la première
-            for (int i = 0; i < 5; i++)
+            if (!audioSources[i].isPlaying)
             {
                 audioSources[i].Play();
-                audioSources[i].mute = i != 0;
             }
-        }
-        else if (starsLitCount > 2)
-        {
-            // Calcule combien de pistes doivent être unmuted
-            int totalStars = stars.Count;
-            int toUnmute = 1 + Mathf.FloorToInt(((starsLitCount - 2) / (float)(totalStars - 2)) * 4);
-            for (int i = 0; i < 5; i++)
-            {
-                audioSources[i].mute = i >= toUnmute ? true : false;
-            }
-        }
-        else if (starsLitCount > 2 && stars.Count > 2)
-        {
-            int totalStars = stars.Count;
-            int toUnmute = 1 + Mathf.FloorToInt(((starsLitCount - 2) / (float)(totalStars - 2)) * 4);
-            for (int i = 0; i < 5; i++)
-            {
-                audioSources[i].mute = i >= toUnmute;
-            }
-        }
+            audioSources[i].mute = i >= nPlaying;
+        }       
     }
 
     private bool AllStarsLit()

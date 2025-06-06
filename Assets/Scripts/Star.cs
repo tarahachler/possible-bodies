@@ -77,20 +77,24 @@ public class Star : MonoBehaviour
 
     void LightUp()
     {
-        IsLit = true;
+        if (!IsLit) {
+            Debug.Log("Star lit: " + gameObject.name);
 
-        if (litMaterial != null)
-            sphereRenderer.material = litMaterial;
+            if (litMaterial != null)
+                sphereRenderer.material = litMaterial;
 
-        if (particles != null)
-            particles.Play();
+            if (particles != null)
+                particles.Play();
 
-        if (planeObject != null)
-            StartCoroutine(GlitchPlane());
+            if (planeObject != null)
+                StartCoroutine(GlitchPlane());
 
-        PlayLightUpSound();
+            PlayLightUpSound();
 
-        StarManager.Instance.StarLit(this);
+            StarManager.Instance.StarLit(this);
+
+            IsLit = true;
+        }
     }
 
     void PlayLightUpSound()
