@@ -35,6 +35,7 @@ public class StarManager : MonoBehaviour
             source.mute = true;
             audioSources[i] = source;
         }
+        StartCoroutine(PreloadAudioClips());
     }
 
     public void RegisterStar(Star star)
@@ -59,7 +60,7 @@ public class StarManager : MonoBehaviour
         float fPlaying = (starsLitCount - 2) * (audioClips.Count() - 1.0f) / (stars.Count - 2) + 1;
         int nPlaying = Mathf.FloorToInt(fPlaying);
         Debug.Log($"fPlaying: {fPlaying} , nPlaying: {nPlaying}, Stars Lit: {starsLitCount}, Total Stars: {stars.Count}");
-        
+
         for (int i = 0; i < audioClips.Count(); i++)
         {
             if (!audioSources[i].isPlaying)
@@ -67,7 +68,7 @@ public class StarManager : MonoBehaviour
                 audioSources[i].Play();
             }
             audioSources[i].mute = i >= nPlaying;
-        }       
+        }
     }
 
     private bool AllStarsLit()
@@ -79,4 +80,16 @@ public class StarManager : MonoBehaviour
         }
         return true;
     }
+
+    private IEnumerator PreloadAudioClips()
+    {
+        for (int i = 0; i < audioSources.Length; i++)
+        {
+            audioSources[i].Play();
+            audioSources[i].Stop(); // ou Stop(), selon le comportement souhaité
+        }
+
+        yield return null;
+    }
+
 }

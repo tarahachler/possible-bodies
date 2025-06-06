@@ -77,7 +77,8 @@ public class Star : MonoBehaviour
 
     void LightUp()
     {
-        if (!IsLit) {
+        if (!IsLit)
+        {
             Debug.Log("Star lit: " + gameObject.name);
 
             if (litMaterial != null)
@@ -90,10 +91,10 @@ public class Star : MonoBehaviour
                 StartCoroutine(GlitchPlane());
 
             PlayLightUpSound();
+            
+            IsLit = true;
 
             StarManager.Instance.StarLit(this);
-
-            IsLit = true;
         }
     }
 
