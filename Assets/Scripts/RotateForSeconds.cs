@@ -45,7 +45,6 @@ public class RotateForSeconds : MonoBehaviour
         {
             if (!wasRotating)
             {
-                PlayClip(startRotationClip);
                 wasRotating = true;
             }
             transform.Rotate(0f, rotationSpeed * Time.deltaTime, 0f);

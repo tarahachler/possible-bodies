@@ -9,7 +9,7 @@ public class Star : MonoBehaviour
     private bool isLookedAt = false;
     public ParticleSystem particles;
 
-    public bool IsLit { get; private set; } = false;
+    public bool IsLit { get; set; }
 
     public AudioClip lightUpClip;
     private AudioSource audioSource;
