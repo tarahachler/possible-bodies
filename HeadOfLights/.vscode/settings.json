@@ -66,5 +66,5 @@
     "explorer.fileNesting.patterns": {
         "*.sln": "*.csproj"
     },
-    "dotnet.defaultSolution": "possible-bodies.sln"
+    "dotnet.defaultSolution": "HeadOfLights.sln"
 }
