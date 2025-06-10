@@ -1,5 +1,5 @@
 # Head of Lights
-Head of Lights is an AR game done with Unity for the [possible bodies](https://github.com/abstractmachine/head-md-possible-bodies) project at [HEAD Media Design](https://github.com/HEAD-MasterMediaDesign).
+Head of Lights is an augmented reality game done with Unity for the [possible bodies](https://github.com/abstractmachine/head-md-possible-bodies) project at [HEAD Media Design](https://github.com/HEAD-MasterMediaDesign).
 
 ## Project Description
 In this AR game, a disco ball is shining in the space you’re in. Suddenly, the lights and the music go off. The disco ball has lost its shine.
