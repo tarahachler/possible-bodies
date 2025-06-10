@@ -7,5 +7,7 @@ Your mission is to help it recover. To do that, you need to bring the light back
 By using your gaze, turn on the stars, each one representing a light, and gradually restore the shared brightness. As you light up more stars, layers of the music return, step by step.
 You will also shine more and more with the disco ball. When you finally turn all the lights back on, with the full music, the disco ball will shine again and leave your head.
 
+[Go to PDF](https://github.com/tarahachler/possible-bodies/blob/main/presskit/head-md1-possible-bodies-Head-of-lights.pdf)
+
 ## Walkthrough video
 [Watch on Youtube](https://youtu.be/_RxBggjmJms)
