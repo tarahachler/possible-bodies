@@ -10,4 +10,4 @@ You will also shine more and more with the disco ball. When you finally turn all
 [Go to PDF](https://github.com/tarahachler/possible-bodies/blob/main/presskit/head-md1-possible-bodies-Head-of-lights.pdf)
 
 ## Walkthrough video
-[Watch on Youtube](https://youtu.be/_RxBggjmJms)
+[Watch on Youtube](https://youtu.be/301a7ZoXHAw)
